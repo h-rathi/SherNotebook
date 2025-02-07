@@ -3,7 +3,7 @@ import NoteContext from './noteContext';
 
 const NoteState=(props)=>{
   const initialNotes=[]
-  const host = "http://localhost:5000";
+  const host = "https://sher-notebook-backend.vercel.app";
     const getNotes=async ()=>{
       try {
         const response = await fetch(host+"/api/notes/fetchallnotes",{

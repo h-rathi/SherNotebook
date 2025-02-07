@@ -6,14 +6,14 @@ const Footer = () => {
       <div style={containerStyle}>
         <p>&copy; {new Date().getFullYear()} Himanshu Rathi | All rights reserved.</p>
         <ul style={linkListStyle}>
-          <li><a href="/privacy" style={linkStyle}>Privacy Policy</a></li>
-          <li><a href="/terms" style={linkStyle}>Terms of Service</a></li>
-          <li><a href="/contact" style={linkStyle}>Contact Us</a></li>
+          <li><a  style={linkStyle}>Privacy Policy</a></li>
+          <li><a  style={linkStyle}>Terms of Service</a></li>
+          <li><a  style={linkStyle}>Contact Us</a></li>
         </ul>
         <div style={socialStyle}>
-          <a href="https://facebook.com" style={socialLinkStyle}>Facebook</a>
-          <a href="https://twitter.com" style={socialLinkStyle}>Twitter</a>
-          <a href="https://instagram.com" style={socialLinkStyle}>Instagram</a>
+          <a href="https://www.linkedin.com/in/himanshu-rathi-070124176/" style={socialLinkStyle}>Linkedin</a>
+          <a href="https://github.com/h-rathi" style={socialLinkStyle}>Github</a>
+          <a href="https://www.instagram.com/thehimanshurathi/" style={socialLinkStyle}>Instagram</a>
         </div>
       </div>
     </footer>

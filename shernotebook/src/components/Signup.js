@@ -7,8 +7,12 @@ const Signup = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const {name,email,password}=credentials;
-    const response = await fetch("http://localhost:5000/api/login/createuser", {
+    const {name,email,password,cpassword}=credentials;
+    if (password!==cpassword){
+      props.alt1("Password and confirm password didn't match please check again","danger")
+      return;
+    }
+    const response = await fetch("https://sher-notebook-backend.vercel.app/api/login/createuser", {
       method: "POST",
       headers: {
         "content-type": "application/json"
@@ -22,23 +26,27 @@ const Signup = (props) => {
       localStorage.setItem('token',json.token)
       navigate('/')
       props.alt1("successfully signed up","success")
-  }else if(json.error=='sorry a user with this email already exists'){
+  }else if(json.error==='sorry a user with this email already exists'){
     props.alt1('sorry a user with this email already exists',"danger")
   }
   else{
       props.alt1("please fill the form correctly ","danger")
   }
     
-
+  
   }
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value })
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
+      <div >
+        <h2>please signup to continue</h2>
+      </div>
+    <form  onSubmit={handleSubmit}>
       <div className="mb-3">
-        <label htmlFor="name" className="form-label">Name </label>
+        <label htmlFor="name" className="form-label my-4">Name </label>
         <input required type="text" onChange={onChange} className="form-control" name='name' id="name" aria-describedby="emailHelp" />
 
       </div>
@@ -58,6 +66,7 @@ const Signup = (props) => {
 
       <button type="submit" className="btn btn-primary">Submit</button>
     </form>
+    </div>
   )
 }
 
